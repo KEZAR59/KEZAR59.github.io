@@ -1,0 +1,133 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f7f7;
+  color: #193b46;
+}
+
+header {
+  background: #153d4a;
+  color: white;
+  padding: 45px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 36px;
+  margin: 0 0 12px;
+}
+
+header p {
+  color: #d5eeee;
+}
+
+main {
+  max-width: 850px;
+  margin: 35px auto;
+  padding: 0 18px;
+}
+
+.carte {
+  background: white;
+  padding: 28px;
+  margin-bottom: 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 25px #1234;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #bbd3d5;
+  border-radius: 9px;
+  font-size: 16px;
+}
+
+.boutons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 9px;
+  background: #dcebed;
+  color: #153d4a;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #b5dbd9;
+}
+
+button.actif, #demarrer, #ajouter {
+  background: #168c7b;
+  color: white;
+}
+
+#chrono {
+  font-size: 75px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+  color: #168c7b;
+}
+
+#message, #progression {
+  text-align: center;
+}
+
+.ajout {
+  display: flex;
+  gap: 10px;
+}
+
+.ajout input {
+  flex: 1;
+  min-width: 0;
+}
+
+li {
+  padding: 12px;
+  border-bottom: 1px solid #e2eaea;
+  overflow-wrap: anywhere;
+}
+
+li.terminee {
+  text-decoration: line-through;
+  color: #888;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #647b81;
+}
+
+@media (max-width: 500px) {
+  #chrono {
+    font-size: 55px;
+  }
+
+  .carte {
+    padding: 18px;
+  }
+}

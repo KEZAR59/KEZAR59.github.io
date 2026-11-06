@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Campus</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>🎓 Focus Campus</h1>
+    <p>Organise tes révisions, une séance à la fois.</p>
+  </header>
+
+  <main>
+    <section class="carte">
+      <h2>📚 Ma séance de révision</h2>
+      <label for="matiere">Quelle matière veux-tu réviser ?</label>
+      <input id="matiere" type="text"
+             placeholder="Exemple : Mathématiques">
+
+      <h3>Choisis une durée</h3>
+      <div class="boutons">
+        <button class="duree" data-minutes="15">15 min</button>
+        <button class="duree actif" data-minutes="25">25 min</button>
+        <button class="duree" data-minutes="45">45 min</button>
+      </div>
+
+      <div id="chrono" aria-live="off">25:00</div>
+      <p id="message">Prêt à te concentrer ?</p>
+
+      <div class="boutons">
+        <button id="demarrer">▶ Démarrer</button>
+        <button id="pause">⏸ Pause</button>
+        <button id="reset">↻ Recommencer</button>
+      </div>
+    </section>
+
+    <section class="carte">
+      <h2>✅ Mes tâches</h2>
+      <div class="ajout">
+        <input id="nouvelleTache" type="text"
+               placeholder="Exemple : Revoir le chapitre 2">
+        <button id="ajouter">Ajouter</button>
+      </div>
+      <ul id="listeTaches"></ul>
+      <p id="progression">0 tâche terminée sur 0</p>
+    </section>
+  </main>
+
+  <footer>Focus Campus - Projet L1 Informatique</footer>
+</body>
+</html>

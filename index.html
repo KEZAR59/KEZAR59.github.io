@@ -4,52 +4,330 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Focus Campus</title>
+  <title>Campus Quest - Révisions universitaires</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <h1>🎓 Focus Campus</h1>
-    <p>Organise tes révisions, une séance à la fois.</p>
+  <header class="topbar">
+    <a href="#accueil" class="brand" data-page="accueil">
+      🎓 Campus<span>Quest</span>
+    </a>
+
+    <nav>
+      <button data-page="accueil" class="selected">Accueil</button>
+      <button data-page="matieres">Matières</button>
+      <button data-page="revision">Révisions</button>
+      <button data-page="profil">Ma progression</button>
+    </nav>
+
+    <div class="xp-pill">
+      ⭐ <span id="xpNav">0 XP</span>
+    </div>
   </header>
 
   <main>
-    <section class="carte">
-      <h2>📚 Ma séance de révision</h2>
-      <label for="matiere">Quelle matière veux-tu réviser ?</label>
-      <input id="matiere" type="text"
-             placeholder="Exemple : Mathématiques">
+    <!-- ACCUEIL -->
+    <section id="accueil" class="page active">
+      <div class="hero">
+        <div>
+          <span class="eyebrow">
+            🚀 UNE AUTRE FAÇON DE RÉVISER
+          </span>
 
-      <h3>Choisis une durée</h3>
-      <div class="boutons">
-        <button class="duree" data-minutes="15">15 min</button>
-        <button class="duree actif" data-minutes="25">25 min</button>
-        <button class="duree" data-minutes="45">45 min</button>
+          <h1>
+            Apprends mieux.
+            <span>Réussis tes examens.</span>
+          </h1>
+
+          <p>
+            Choisis une matière, entraîne-toi avec des
+            explications, tente un examen chronométré
+            et révise tes erreurs.
+          </p>
+
+          <button class="primary" data-page="matieres">
+            Choisir une matière →
+          </button>
+
+          <button class="secondary" data-page="profil">
+            Voir ma progression
+          </button>
+        </div>
+
+        <div class="hero-art">
+          <div>🧠</div>
+          <span>📚 5 matières</span>
+          <strong>🏆 Monte de niveau</strong>
+        </div>
       </div>
 
-      <div id="chrono" aria-live="off">25:00</div>
-      <p id="message">Prêt à te concentrer ?</p>
+      <div class="stats">
+        <article class="card">
+          <small>⭐ Expérience</small>
+          <strong id="xpAccueil">0 XP</strong>
+        </article>
 
-      <div class="boutons">
-        <button id="demarrer">▶ Démarrer</button>
-        <button id="pause">⏸ Pause</button>
-        <button id="reset">↻ Recommencer</button>
+        <article class="card">
+          <small>✅ Bonnes réponses</small>
+          <strong id="bonnesAccueil">0</strong>
+        </article>
+
+        <article class="card">
+          <small>🎯 Précision</small>
+          <strong id="precisionAccueil">0 %</strong>
+        </article>
+
+        <article class="card">
+          <small>📚 Sessions terminées</small>
+          <strong id="sessionsAccueil">0</strong>
+        </article>
+      </div>
+
+      <h2>Une vraie méthode de révision</h2>
+
+      <div class="three">
+        <article class="card">
+          <div class="icon">📖</div>
+          <h3>Entraînement guidé</h3>
+          <p>Une correction après chaque question.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">⏱️</div>
+          <h3>Examen blanc</h3>
+          <p>Trois minutes pour répondre.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🔁</div>
+          <h3>Révision des erreurs</h3>
+          <p>Retrouve les questions ratées.</p>
+        </article>
       </div>
     </section>
 
-    <section class="carte">
-      <h2>✅ Mes tâches</h2>
-      <div class="ajout">
-        <input id="nouvelleTache" type="text"
-               placeholder="Exemple : Revoir le chapitre 2">
-        <button id="ajouter">Ajouter</button>
+    <!-- MATIERES -->
+    <section id="matieres" class="page">
+      <div class="heading">
+        <span class="eyebrow">TON PARCOURS</span>
+        <h1>Choisis ta matière 📚</h1>
+        <p>Des questions adaptées au travail universitaire.</p>
       </div>
-      <ul id="listeTaches"></ul>
-      <p id="progression">0 tâche terminée sur 0</p>
+
+      <div class="subjects">
+        <button class="subject" data-subject="informatique">
+          <span>💻</span>
+          <h3>Informatique</h3>
+          <p>Programmation, web, algorithmes, données</p>
+          <b>Commencer →</b>
+        </button>
+
+        <button class="subject" data-subject="mathematiques">
+          <span>📐</span>
+          <h3>Mathématiques</h3>
+          <p>Analyse, algèbre, calcul, probabilités</p>
+          <b>Commencer →</b>
+        </button>
+
+        <button class="subject" data-subject="anglais">
+          <span>🇬🇧</span>
+          <h3>Anglais</h3>
+          <p>Grammaire et vocabulaire académique</p>
+          <b>Commencer →</b>
+        </button>
+
+        <button class="subject" data-subject="methodologie">
+          <span>📝</span>
+          <h3>Méthodologie</h3>
+          <p>Révision efficace et méthode scientifique</p>
+          <b>Commencer →</b>
+        </button>
+
+        <button class="subject" data-subject="sciences">
+          <span>🔬</span>
+          <h3>Culture scientifique</h3>
+          <p>Physique, biologie et esprit critique</p>
+          <b>Commencer →</b>
+        </button>
+      </div>
+    </section>
+
+    <!-- REVISIONS -->
+    <section id="revision" class="page">
+      <div class="heading">
+        <span class="eyebrow">CENTRE D'ENTRAÎNEMENT</span>
+        <h1>Prépare ta session 🎯</h1>
+        <p>Choisis une matière, un niveau et un mode.</p>
+      </div>
+
+      <div id="configuration" class="panel">
+        <label for="matiere">Matière</label>
+
+        <select id="matiere">
+          <option value="informatique">💻 Informatique</option>
+          <option value="mathematiques">📐 Mathématiques</option>
+          <option value="anglais">🇬🇧 Anglais</option>
+          <option value="methodologie">📝 Méthodologie</option>
+          <option value="sciences">🔬 Culture scientifique</option>
+        </select>
+
+        <label for="difficulte">Niveau</label>
+
+        <select id="difficulte">
+          <option value="facile">🟢 Débutant</option>
+          <option value="moyen">🟡 Intermédiaire</option>
+          <option value="difficile">🔴 Avancé</option>
+        </select>
+
+        <h2>Quel mode veux-tu essayer ?</h2>
+
+        <div class="modes">
+          <button data-mode="entrainement">
+            📖
+            <strong>Entraînement</strong>
+            <small>Corrections immédiates</small>
+          </button>
+
+          <button data-mode="examen">
+            ⏱️
+            <strong>Examen blanc</strong>
+            <small>3 minutes, corrigé final</small>
+          </button>
+
+          <button data-mode="erreurs">
+            🔁
+            <strong>Mes erreurs</strong>
+            <small>Revoir mes questions ratées</small>
+          </button>
+        </div>
+
+        <p id="messageConfig" class="message"></p>
+      </div>
+
+      <!-- QUIZ -->
+      <div id="quiz" class="panel" hidden>
+        <div class="quiz-meta">
+          <span id="quizMatiere"></span>
+          <span id="quizNumero"></span>
+          <span id="quizTemps"></span>
+        </div>
+
+        <div class="track">
+          <div id="quizBarre" class="fill"></div>
+        </div>
+
+        <h2 id="quizQuestion"></h2>
+
+        <div id="quizReponses" class="answers"></div>
+
+        <div id="quizCorrection" class="correction" hidden>
+          <h3 id="quizVerdict"></h3>
+          <p id="quizExplication"></p>
+        </div>
+
+        <div class="actions">
+          <button id="quitter" class="secondary">
+            Quitter
+          </button>
+
+          <button id="suivante" class="primary" hidden>
+            Question suivante →
+          </button>
+        </div>
+      </div>
+
+      <!-- RESULTATS -->
+      <div id="resultats" class="panel results" hidden>
+        <div class="trophy">🏆</div>
+        <h2>Session terminée !</h2>
+
+        <div id="scoreFinal" class="big-score"></div>
+        <p id="messageFinal"></p>
+        <p id="detailFinal"></p>
+
+        <div id="corrigeExamen" class="exam-review"></div>
+
+        <button id="rejouer" class="primary">
+          Nouvelle session
+        </button>
+
+        <button class="secondary" data-page="profil">
+          Ma progression
+        </button>
+      </div>
+    </section>
+
+    <!-- PROGRESSION -->
+    <section id="profil" class="page">
+      <div class="heading">
+        <span class="eyebrow">TABLEAU DE BORD</span>
+        <h1>Ma progression 📊</h1>
+        <p>Les résultats sont enregistrés dans ce navigateur.</p>
+      </div>
+
+      <div class="stats">
+        <article class="card">
+          <small>⭐ XP</small>
+          <strong id="xpProfil">0</strong>
+        </article>
+
+        <article class="card">
+          <small>🎓 Niveau</small>
+          <strong id="niveauProfil">1</strong>
+        </article>
+
+        <article class="card">
+          <small>✅ Réponses correctes</small>
+          <strong id="bonnesProfil">0</strong>
+        </article>
+
+        <article class="card">
+          <small>📚 Sessions</small>
+          <strong id="sessionsProfil">0</strong>
+        </article>
+      </div>
+
+      <div class="panel">
+        <h2>Prochain niveau</h2>
+        <div class="track">
+          <div id="niveauBarre" class="fill"></div>
+        </div>
+        <p id="niveauTexte"></p>
+      </div>
+
+      <div class="panel">
+        <h2>Résultats par matière</h2>
+        <div id="statsMatieres"></div>
+      </div>
+
+      <div class="panel">
+        <h2>🔁 Mes erreurs</h2>
+        <p id="nombreErreurs"></p>
+
+        <button id="revoirErreurs" class="primary">
+          Réviser mes erreurs →
+        </button>
+      </div>
+
+      <div class="panel">
+        <h2>🏅 Mes badges</h2>
+        <div id="badges" class="badges"></div>
+      </div>
+
+      <button id="reinitialiser" class="danger">
+        Réinitialiser ma progression
+      </button>
     </section>
   </main>
 
-  <footer>Focus Campus - Projet L1 Informatique</footer>
+  <footer>
+    <b>🎓 Campus Quest</b>
+    <p>
+      Projet de révision universitaire réalisé
+      en HTML, CSS et JavaScript.
+    </p>
+  </footer>
 </body>
 </html>
